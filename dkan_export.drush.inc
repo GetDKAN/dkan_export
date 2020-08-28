@@ -59,7 +59,8 @@ function dkan_export_drush_export() {
 
   if (!$skip_uuids) {
     $query->addExpression('GROUP_CONCAT(n.uuid)', 'uuids');
-    $query->leftjoin('node', 'n', 'u.uid = n.uid');
+    /* Limit to only datasets since only those are exported in the data.json. */
+    $query->leftjoin('node', 'n', 'u.uid = n.uid AND n.type = \'dataset\'');
   }
 
   $query->leftjoin('field_data_field_about', 'a', 'a.entity_type = \'user\' AND a.entity_id = u.uid');
