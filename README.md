@@ -23,14 +23,14 @@ $ drush en dkan_export -y
 
 # Usage
 ## Export Data
-Data exports is made through drush commands that will output the content as CSV unless specified otherwise.
+Data exports are made through drush commands that will output the content as CSV unless specified otherwise.
 
 Following the Data exports currently supported:
 
 ### Users
 Save all users currently available on on a DKAN Classic site and uuids of datasets that they authored.
 ```
-$ drush dkan-export-users > users.csv
+$ drush dkan-export-users > dkanclassic-users.csv
 ```
 
 Additional options:
