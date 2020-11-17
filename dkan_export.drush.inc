@@ -64,11 +64,14 @@ function dkan_export_drush_export() {
   }
 
   $query->leftjoin('field_data_field_about', 'a', 'a.entity_type = \'user\' AND a.entity_id = u.uid');
+  $query->leftjoin('users_roles', 'ur', 'ur.uid = u.uid');
+  $query->leftjoin('role', 'r', 'r.rid = ur.rid');
 
   $query->addField('u', 'mail', 'email');
   $query->addField('u', 'created');
   $query->addField('u', 'access', 'last_access');
   $query->addField('u', 'login', 'last_login');
+  $query->addField('r', 'name', 'roles');
   $query->addField('a', 'field_about_value', 'about');
 
   // Exclude anonymous.
