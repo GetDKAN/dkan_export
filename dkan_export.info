@@ -1,4 +1,4 @@
-name = Open Data Schema Map
+name = DKAN Classic Export
 description = Maps entities to Open Data schemas.
 core = 7.x
 package = DKAN
